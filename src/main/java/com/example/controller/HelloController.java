@@ -1,19 +1,27 @@
 package com.example.controller;
 
+import com.example.dto.UserDto;
+import com.example.service.UserService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+
 @RestController
 public class HelloController {
-   @RequestMapping("/hello")
-    public Object hello(String name){
-       String aaa="aaa";
-       String bbb="bbb";
-       for (int i = 0; i < 20; i++) {
-           int a = i+1;
-           System.out.println(i);
-       }
-       return "hello my word";
-    }
 
+    @Resource
+    private UserService userService;
+
+    @RequestMapping("/")
+    public String index() {
+        UserDto userDto = userService.doLogin(null);
+        System.out.println(123);
+        return "Greetings from Spring Boot!";
+    }
+    @RequestMapping("/hello")
+    public String hello() {
+        System.out.println(123);
+        return "Greetings from Spring Boot!";
+    }
 }

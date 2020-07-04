@@ -1,6 +1,6 @@
-package com.example.dto;
+package com.example.domain;
 
-public class UserDto {
+public class User {
     /**
      * ID
      */
@@ -55,33 +55,12 @@ public class UserDto {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("UserDto{");
+        final StringBuffer sb = new StringBuffer("User{");
         sb.append("id='").append(id).append('\'');
         sb.append(", loginName='").append(loginName).append('\'');
         sb.append(", name='").append(name).append('\'');
+        sb.append(", password='").append(password).append('\'');
         sb.append('}');
         return sb.toString();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        UserDto userDto = (UserDto) o;
-
-        if (!id.equals(userDto.id)) return false;
-        if (!loginName.equals(userDto.loginName)) return false;
-        if (name != null ? !name.equals(userDto.name) : userDto.name != null) return false;
-        return password != null ? password.equals(userDto.password) : userDto.password == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id.hashCode();
-        result = 31 * result + loginName.hashCode();
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        return result;
     }
 }
